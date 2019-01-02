@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <h2 class="pageTitle">Your reviews</h2>
+
+    <div class="col-sm-12 myReviews">
+        <div class="panel panel-info" *ngFor="let review of myReviews |paginate: { itemsPerPage: 2, currentPage: p } ">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <h2> {{review.name}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" style="font-size: 18px;">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Book by {{review.author}}
+                    </div>
+                    <div class="col-sm-6">
+                        Pages : {{review.pages}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Price : {{review.price}}
+                    </div>
+                    <div class="col-sm-6">
+                        Rating
+                        <span *ngFor="let dummy of ' '.repeat(review.rating).split('')" class="fa fa-star checked">
+                        </span>
+                        <span class="fa fa-star" *ngFor="let dummy of ' '.repeat(5 - review.rating).split('')">
+                        </span>
+
+                        {{review.rating}}/5
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <button class="btn btn-primary view-btn hover-shadow" title="View details" [routerLink]="['/myreview',review.id]">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

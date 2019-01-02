@@ -1,0 +1,97 @@
+
+.btn{
+    font-size: 18px;
+    border: none;
+}
+
+.checked {
+    color: rgb(255, 180, 41);
+  }
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-weight: 700;
+}
+.pageTitle{
+    
+        color: rgb(255, 255, 255);
+        font-size: 35px;
+        margin-top: 5%;
+        margin-bottom: 20px;
+ 
+}
+
+.myReviews{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.589);
+    padding: 0px 70px 50px 70px;
+    width: 100%;
+    border-radius: 25px 130px;
+    box-shadow: 15px 10px 5px grey;
+}
+
+.img-responsiv {
+    max-width: 50%;
+    height: auto;
+}
+h1{
+    font-size: 50px;
+}
+p{
+    font-size: 22px;
+}
+.price{    color: white;
+
+        padding: 16px;
+        background-color:#4313F2;
+        max-width: 100%;
+        height:auto;  
+        border-radius: 35px;
+
+}
+.pages{
+    padding: 16px;
+    color: white;
+
+    background-color:#C300A3;
+    max-width: 100%;
+    height:auto;  
+    border-radius: 35px;
+
+}
+.pricetext{
+    font-size: 25px;
+    margin: 0px;
+    font-weight: 900;
+    text-align: center;
+}
+
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+  }
+  
+  .modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+  
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+  }
+  .btn-confirm{
+      background: #03C33C;
+      color: white; 
+
+  }
+.btn-confirm:hover{
+      background: rgb(2, 136, 42);
+  }

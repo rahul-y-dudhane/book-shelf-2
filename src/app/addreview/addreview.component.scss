@@ -1,0 +1,33 @@
+input{
+    height: 50px;
+    font-size: 18px;
+}
+
+select{
+    height: 50px;
+    font-size: 18px; 
+}
+textarea{
+    font-size: 18px;
+}
+.btn{
+    width: 65%;
+    height: 45px;
+    font-size: 18px;
+    background:  rgb(99, 192, 161);
+    border: none;
+}
+h2{
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.reviewForm{
+    margin-top: 15%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.589);
+    padding: 50px 70px 50px 70px;
+    width: 100%;
+}
+

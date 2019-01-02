@@ -1,0 +1,78 @@
+input{
+    height: 50px;
+    font-size: 18px;
+}
+
+select{
+    height: 50px;
+    font-size: 18px; 
+}
+textarea{
+    font-size: 18px;
+}
+.btn{
+    font-size: 18px;
+    border: none;
+}
+.view-btn{
+    
+    background:  rgb(99, 192, 161);
+}
+.edit-btn{
+    background: #448fb4;
+
+}
+.checked {
+    color: orange;
+  }
+
+h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-weight: 700;
+}
+.pageTitle{
+    
+        color: rgb(255, 255, 255);
+        font-size: 35px;
+        margin-top: 5%;
+        margin-bottom: 20px;
+ 
+}
+
+.myReviews{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.589);
+    padding: 50px 70px 50px 70px;
+    width: 100%;
+    border-radius: 25px 130px;
+    box-shadow: 15px 10px 5px grey;
+    // transition-timing-function: ease-in;
+
+}
+.singleReview{
+    background-color: rgba(8, 235, 204, 0.589);
+
+}
+
+.box
+{
+    width: 400px;
+    height: 300px;
+    
+}
+
+.box1
+{     
+    box-shadow: 15px 10px 5px grey;
+    float: left;
+    margin-left: 35px;
+    margin-top: 20px;
+}
+
+
+.bg-danger {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}

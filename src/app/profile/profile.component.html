@@ -1,0 +1,88 @@
+<div class="container-fluid">
+  <div class="title">Profile</div>
+
+  <div class="col-sm-12 myprofile">
+
+    <div class="panel panel-default">
+      <div class="panel panel-heading">
+
+        <div class="col-sm-11 "></div>
+        <div class="col-sm=1">
+          <button class="btn btn-primary edit-btn" (click)="editable()" title="Edit profile">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="panel panel- body">
+        <div class="row" [ngClass]="{'myinput':readonly}">
+          <div class="col-sm-4">
+            <img src="../../assets/myProfile.jpg" height="200px; width:200px;">
+          </div>
+
+          <form [formGroup]="myForm" (ngSubmit)="updateProfile(myForm.value)">
+            <div class="col-sm-7">
+              <div class="form-Group">
+                <div class="row myrow">
+                  <div class="col-sm-3 textfont"><b>FirstName</b></div>
+                  <div class="col-sm-3 textfont">
+                    <input type="text" id="firstname" formControlName="firstName" [(ngModel)]="profile.firstName"
+                      [readonly]="readonly" required>
+                  </div>
+                </div>
+                <div *ngIf="myForm.controls['firstName'].touched && !myForm.controls['firstName'].valid" class="alert alert-danger">
+                  <div *ngIf="myForm.controls['firstName'].hasError('required') ">
+                    First name is required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-Group">
+                <div class="row myrow">
+                  <div class="col-sm-3 textfont"><b>LastName </b></div>
+                  <div class="col-sm-9 textfont">
+                    <input type="text" id="lastname" formControlName="lastName" [readonly]="readonly" [(ngModel)]="profile.lastName"
+                      required></div>
+                </div>
+                <div *ngIf="myForm.controls['lastName'].touched && !myForm.controls['lastName'].valid" class="alert alert-danger">
+
+                  <div *ngIf="myForm.controls['lastName'].hasError('required') ">
+                    Last name is required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-Group">
+                <div class="row myrow">
+                  <div class="col-sm-3 textfont"><b>E-mail</b></div>
+                  <div class="col-sm-9 textfont">
+                    <input type="email" id="email" [(ngModel)]="profile.email" [readonly]="readonly" formControlName="email">
+                  </div>
+                </div>
+                <div *ngIf="myForm.controls['email'].touched && !myForm.controls['email'].valid" class="alert alert-danger">
+
+                  <div *ngIf="myForm.controls['email'].hasError('required') ">
+                    Email is required.
+                  </div>
+                  <div *ngIf="myForm.controls['email'].hasError('email') ">
+                    Invalid email.
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-sm-3"></div>
+
+              <div class="row myrow">
+                <div class="col-sm-3 textfont"></div>
+                <div class="col-sm-9 textfont" style="margin-left:200px;">
+                  <input [disabled]="!myForm.valid" *ngIf="!readonly" type="submit" class="btn btn-primary " title="Update profile"
+                    value="Update"> </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

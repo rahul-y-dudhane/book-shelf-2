@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <h2 class="pageTitle"> All reviews</h2>
+    <div class="col-sm-12 myReviews">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-5">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        <div class="panel panel-info box box1 " *ngFor="let review of myReviews |paginate: { itemsPerPage: 4, currentPage: p } ">
+            <a [routerLink]="['/allreviews',review.id]">
+                <div class="panel-heading bg-danger">
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <h2> {{review.name}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body " style="font-size: 18px;">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            Book by {{review.author}}
+                        </div>
+                        <div class="col-sm-6">
+                            Pages : {{review.pages}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            Price : {{review.price}}
+                        </div>
+                        <div class="col-sm-6">
+                            Rating
+                            <span *ngFor="let dummy of ' '.repeat(review.rating).split('')" class="fa fa-star checked">
+                            </span>
+                            <span class="fa fa-star" *ngFor="let dummy of ' '.repeat(5 - review.rating).split('')">
+                            </span>
+                            {{review.rating}}/5
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

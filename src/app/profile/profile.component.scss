@@ -1,0 +1,65 @@
+.title
+{
+    color: rgb(255, 255, 255);
+        font-size: 35px;
+        margin-top: 5%;
+        margin-bottom: 20px;
+}
+
+.myprofile
+{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.589);
+    padding: 50px 70px 50px 70px;
+    width: 100%;
+    border-radius: 25px 130px;
+    box-shadow: 15px 10px 5px grey;
+}
+
+.textfont
+{
+    font-size: 20px;
+    text-align: left;
+}
+
+hr{
+    border: 1px solid rgb(22, 145, 151);
+  }
+
+.myinput
+{
+
+    input[type=text] {
+        border: none;
+        background-color: none;
+        outline: 0;
+        font-size: 25px;
+        
+    }
+    
+    input[type=text]:focus {
+        border: none;
+        background-color: none;
+        outline: 0;
+        
+    }
+    input[type=email] {
+        border: none;
+        background-color: none;
+        outline: 0;
+        font-size: 25px;
+        
+    }
+    
+    input[type=email]:focus {
+        border: none;
+        background-color: none;
+        outline: 0;
+        
+    }
+}
+
+.myrow
+{
+    margin-top: 20px;
+}

@@ -1,0 +1,66 @@
+.sidenav {
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: auto;
+    left: 0;
+    margin-top: 50px;
+    background: url('https://media.giphy.com/media/aRZ4vTsHnyW6A/giphy.gif');
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+    opacity: 0.8;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(231, 231, 231);
+    display: block;
+    transition: 0.3s;
+    font-weight: lighter;
+    opacity: 1;
+  }
+  
+  .sidenav a:hover {
+    background-color: aquamarine;
+    color:white;
+    opacity: 1;
+  }
+  
+    
+  .main {
+    transition: margin-left .5s;
+    padding: 16px;
+    padding-top: 0px;
+    margin-top: 50px;
+    height: 100%;
+  }
+  .menu {
+    background-color: rgb(22, 145, 151);
+    color: white;
+    height: 60px;
+    padding-left: 25px;
+    padding-top: 10px;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .active{
+    background-color: rgb(99, 192, 161);
+    color:white;
+    opacity: 1;
+  }
+  .heading{
+    font-size:30px;
+    cursor:pointer;
+  font-family: serif }
+ 
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }

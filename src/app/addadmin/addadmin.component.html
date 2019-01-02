@@ -1,0 +1,171 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="reviewForm">
+        <h2>{{headingText}}</h2>
+
+        <form [formGroup]="adminForm" (ngSubmit)="saveUser(adminForm.value)">
+
+          <div class="form-group">
+
+            <input id="firstName" type="text" class="form-control" formControlName="firstName" placeholder="First Name">
+
+            <div *ngIf="adminForm.controls['firstName'].touched && !adminForm.controls['firstName'].valid" class="alert alert-danger">
+
+              <div *ngIf="adminForm.controls['firstName'].hasError('required') ">
+                First name is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+
+            <input id="lastName" type="text" class="form-control" formControlName="lastName" placeholder="Last name"
+              required>
+
+            <div *ngIf="adminForm.controls['lastName'].touched && !adminForm.controls['lastName'].valid" class="alert alert-danger">
+
+              <div *ngIf="adminForm.controls['lastName'].hasError('required') ">
+                Last name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <input id="email" type="email" class="form-control" formControlName="email" placeholder="Email ID" required>
+
+            <div *ngIf="adminForm.controls['email'].touched && !adminForm.controls['email'].valid" class="alert alert-danger">
+
+              <div *ngIf="adminForm.controls['email'].hasError('required') ">
+                Email is required.
+              </div>
+              <div *ngIf="adminForm.controls['email'].hasError('email') ">
+                Invalid email.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-12 text-left">
+                <label class="radio-inline">
+
+                  <input type="radio" formControlName="role" value="admin" required> &nbsp;&nbsp; Admin</label>
+                <label class="radio-inline">
+
+                  <input type="radio" formControlName="role" value="user" required> &nbsp;&nbsp; User</label>
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="form-group">
+
+            <input id="password" type="password" class="form-control" formControlName="password" placeholder="Password"
+              required>
+
+            <div *ngIf="adminForm.controls['password'].touched && !adminForm.controls['password'].valid" class="alert alert-danger">
+              <div *ngIf="adminForm.controls['password'].hasError('required') ">
+                Password is required.</div>
+              <div *ngIf="adminForm.controls['password'].hasError('minlength') ">
+                Password should contains at least 8 charactors</div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <input id="confirmPass" type="password" class="form-control" formControlName="confirmPass" placeholder="Confirm password"
+              required>
+            <div *ngIf="adminForm.controls['confirmPass'].touched && !adminForm.controls['confirmPass'].valid" class="alert alert-danger">
+              <div *ngIf="adminForm.controls['confirmPass'].hasError('required') ">
+                Please re-enter password</div>
+            </div>
+            <div class="alert alert-danger" *ngIf="adminForm.errors?.mismatch && (adminForm.controls['confirmPass'].touched || adminForm.controls['confirmPass'].dirty) ">
+              Password doesn't match.
+            </div>
+          </div>
+
+          <button type="submit" [disabled]="!adminForm.valid" class="btn btn-primary">{{btnText}}</button>
+          <button *ngIf="editingMode" class="btn btn-danger" (click)="cancel()">Cancel</button>
+          <div style="vertical-align: middle" *ngIf="editingMode" data-target="#confirmModal" data-toggle="modal" class="btn btn-danger hover-shadow btn-delete"
+            title="Delete">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </div>
+        </form>
+
+        <div id="confirmModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Confirmation</h3>
+              </div>
+              <div class="modal-body">
+                <h4>Are you sure that you want to permanetly delete the selected user? </h4>
+              </div>
+              <div class="modal-footer">
+                <button (click)="deleteUser()" type="button" class="btn btn-confirm" data-dismiss="modal">Confirm</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="col-sm-2" style="padding-top: 203px">
+      <div *ngIf='showTick' class="svg-container">
+        <svg class="ft-green-tick" xmlns="http://www.w3.org/2000/svg" height="100" width="100" viewBox="0 0 48 48"
+          aria-hidden="true">
+          <circle class="circle" fill="#5bb543" cx="24" cy="24" r="22" />
+          <path class="tick" fill="none" stroke="#FFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"
+            stroke-miterlimit="10" d="M14 27l5.917 4.917L34 17" />
+        </svg>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <h2 class="pageTitle">All Users</h2>
+
+  <div class="col-sm-12 myReviews">
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of allUsers" (click)="selectedUser(user)">
+            <td>{{user.id}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.role}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

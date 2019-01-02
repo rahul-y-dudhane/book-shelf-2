@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row menu">
+    <div class="col-sm-12">
+      <span class="heading" style="font-size:30px;cursor:pointer" (click)="toggleSideBar()">
+        &#9776; Book Shelf</span>
+    </div>
+    <div class="col-sm-10 text-center ">
+      <span class="heading"></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="sidenav" [ngStyle]="{'width.px':sideBarWidth}">
+      <a (click)="toggleSideBar()" [routerLink]='["/home"]' [routerLinkActive]="'active'">
+        <i class="fa fa-fw fa-home"></i> Home</a>
+
+      <a *ngIf="!authService.isLoggedIn()" [routerLink]='["/login"]' [routerLinkActive]="'active'">
+        <i class="fa fa-fw fa-sign-in"></i>Login</a>
+
+
+      <a (click)="toggleSideBar()" [routerLink]='["/profile"]' [routerLinkActive]="'active'" *ngIf="authService.isLoggedIn()">
+        <i class="fa fa-fw fa-user"></i> My Profile</a>
+
+
+      <a (click)="toggleSideBar()" *ngIf="authService.isLoggedIn()" [routerLink]='["/myreviews"]' [routerLinkActive]="'active'">
+        <i class="fa fa-fw fa-comment"></i> My Reviews</a>
+
+
+      <a (click)="toggleSideBar()" *ngIf="authService.isLoggedIn() && authService.isAdmin()" [routerLink]='["/admin"]'
+        [routerLinkActive]="'active'">
+        <i class="fa fa-fw fa-user-plus"></i> Add User</a>
+
+
+      <a (click)="toggleSideBar()" *ngIf="authService.isLoggedIn()" [routerLink]='["/review"]' [routerLinkActive]="'active'">
+        <i class="fa fa-fw fa-plus-circle"></i> Add Review</a>
+
+      <a *ngIf="authService.isLoggedIn()" (click)="logout()">
+        <i class="fa fa-fw fa-sign-out"></i> Logout</a>
+    </div>
+
+    <div class="main" [ngStyle]="{'margin-left.px':mainMargin}">
+
+      <div class="container text-center">
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
+  </div>
+</div>

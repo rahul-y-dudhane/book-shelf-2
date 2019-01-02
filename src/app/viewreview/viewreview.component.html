@@ -1,0 +1,101 @@
+<div class="container-fluid">
+  <h2 class="pageTitle">{{review.name}}</h2>
+
+  <div class="col-sm-12 myReviews">
+    <div class="row text-center">
+      <h4>Book by <b>{{review.author}}</b></h4>
+    </div>
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-4 text-right hover-shadow">
+            <img src="../../assets/myProfile.jpg" class="img-circle img-responsiv " alt="Cinque Terre">
+          </div>
+          <div class="col-sm-8 text-left hover-shadow">
+            <h4><b>{{userName}}</b></h4>
+            <h5>26-Dec-2018</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-4 text-right">
+            <h1 class=" hover-shadow">{{review.rating}}/5</h1>
+          </div>
+          <div class="col-sm-4 text-left">
+            <h3 class=" hover-shadow">
+              <span *ngFor="let dummy of ' '.repeat(review.rating).split('')" class="fa fa-star checked"></span>
+              <span class="fa fa-star" *ngFor="let dummy of ' '.repeat(5 - review.rating).split('')"></span>
+            </h3>
+          </div>
+          <div class="col-sm-2 text-right" style="padding-right: 0px">
+
+            <button *ngIf="!hideBtn" (click)="editReview(review)" class="btn btn-primary edit-btn hover-shadow" title="Edit review">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="col-sm-2 text-left">
+            <button *ngIf="!hideBtn" data-target="#confirmModal" data-toggle="modal" class="btn btn-danger hover-shadow"
+              title="Delete">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+
+            <div id="confirmModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Confirmation</h3>
+                  </div>
+                  <div class="modal-body">
+                    <h4>Are you sure that you want to permanetly delete the selected review? </h4>
+                  </div>
+                  <div class="modal-footer">
+                    <button (click)="deleteReview(review.id)" type="button" class="btn btn-confirm" data-dismiss="modal">Confirm</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-left">
+        <blockquote>
+          <p>{{review.review}}</p>
+        </blockquote>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 text-right">
+      </div>
+      <div class="col-sm-6 text-left">
+        <div class="col-sm-6">
+
+          <div class="pages hover-shadow">
+            <h4>
+              No. of pages
+            </h4>
+            <h1 class="pricetext ">{{review.pages}}</h1>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="price hover-shadow">
+            <h4>
+              Price
+            </h4>
+            <h1 class="pricetext">{{review.price | currency:"₹"}} </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
