@@ -9,7 +9,7 @@ export class AdminSevice {
     /**
      * Server Base URL
      */
-    adminUrl = "http://localhost:5000/admins";
+    adminUrl = "http://localhost:3000/admins";
 
     /**
      * Creating Behaviour Subject for updating side bar menu items.
