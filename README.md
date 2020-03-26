@@ -9,16 +9,16 @@ To run this project follow this steps:
         npm install -g json-server
 ```
 # For Ubuntu or Linux
-    ```bash
+```bash
         sudo npm install -g json-server
-    ```
+```
 2. Now install packages needed for project.
 ```bash
     npm install
 ```
 3. Now run project by following command
-   ```bash
+ ```bash
     npm start
-    ```
+ ```
 
 Don't run with ng serve else you will not get data from server.
